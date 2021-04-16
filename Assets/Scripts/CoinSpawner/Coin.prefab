@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6984293269011356315}
   - component: {fileID: 6984293269011356314}
   - component: {fileID: 6984293269011356317}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,6 +95,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c1a4133d31dbc340ad625da74d6e365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.002357483
+      inSlope: 2.0141509
+      outSlope: 2.0141509
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1.0094329
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.002357483
+      inSlope: -2.0141509
+      outSlope: -2.0141509
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!50 &6984293269011356314
 Rigidbody2D:
   serializedVersion: 4

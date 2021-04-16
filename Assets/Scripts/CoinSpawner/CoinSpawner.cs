@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class CoinSpawner : MonoBehaviour
 {
@@ -11,15 +10,7 @@ public class CoinSpawner : MonoBehaviour
     public float rangeNonSpawn, minMapSpawn, maxMapSpawn, yPos, vanishTime;
     public int cantRocksOnMetaToSpawn;
     private int rockOnMeta;
-    void Start(){
-        
-    }
-
-    void Update(){
-
-        
-
-    }
+    
 
     public void SpanwCoin(int _rockOnMeta){
         rockOnMeta+=_rockOnMeta;
@@ -33,6 +24,7 @@ public class CoinSpawner : MonoBehaviour
             obj.GetComponent<Coin>().SetGrowSize(growSize);
             obj.GetComponent<Coin>().SetRotationVelocity(rotationVelocity);
             obj.GetComponent<Coin>().SetVanishTime(vanishTime);
+            
             rockOnMeta=0;
         }
     } 

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Trower : MonoBehaviour{
@@ -66,7 +65,7 @@ public class Trower : MonoBehaviour{
     }
 
     private void SetStart(GameObject obj){
-        obj.GetComponent<Rock>().SetRotation(velocityRock,angle);
+        obj.GetComponent<Rock>().SetAngle(velocityRock,angle);
         obj.GetComponent<Rock>().SetGravity(gravityRock);
         obj.GetComponentInChildren<RockSprite>().SetRotationVelocity(rotationVelocityRock);
     }

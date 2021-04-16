@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 
 public class Rock : MonoBehaviour
@@ -80,7 +78,7 @@ public class Rock : MonoBehaviour
         _horizontalVelocity*=_reboteHorizontal;
     }
 
-    public void SetRotation(float velocity, float angle){
+    public void SetAngle(float velocity, float angle){
 
         verticalVelocity=velocity;
         horizontalVelocity=velocity;

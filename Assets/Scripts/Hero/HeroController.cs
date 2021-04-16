@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HeroController : MonoBehaviour
 {
@@ -9,12 +7,11 @@ public class HeroController : MonoBehaviour
     [Range(0,1f)][SerializeField]private float acelerationRate=0;
     [Range(0,1f)][SerializeField]private float decelerationRate=0;
     public Animator animator;
+    public float xMinDistance,xMaxDistance;
     private SpriteRenderer mySpriteRenderer;
     private float currentVelocity;
     private bool buttonLeft=false;
     private bool buttonRight=false;
-    Vector3 m_Velocity = Vector3.zero;
-
 
     void Start(){
         mySpriteRenderer = GetComponent<SpriteRenderer>();
@@ -23,19 +20,30 @@ public class HeroController : MonoBehaviour
     void Update(){
 
         if(Input.GetKey("right") || buttonRight){
-            currentVelocity = currentVelocity +  acelerationRate * Time.deltaTime / 2;
             mySpriteRenderer.flipX=false;
             smokeTrail.GetComponent<SmokeTrail>().PlayAnimation("right");
             animator.SetBool("quiet", false);
+            if(transform.position.x<xMaxDistance){
+                currentVelocity = currentVelocity +  acelerationRate * Time.deltaTime / 2;
+            }
+            else{
+                currentVelocity=0;
+            }
             if(currentVelocity > maxSpeed){
                 currentVelocity=maxSpeed;
             }
         }
         else if(Input.GetKey("left") || buttonLeft){
-            currentVelocity = currentVelocity -  acelerationRate * Time.deltaTime / 2;
+            
             mySpriteRenderer.flipX=true;
             smokeTrail.GetComponent<SmokeTrail>().PlayAnimation("left");
             animator.SetBool("quiet", false);
+            if(transform.position.x>xMinDistance){
+                currentVelocity = currentVelocity -  acelerationRate * Time.deltaTime / 2;
+            }
+            else{
+                currentVelocity=0;
+            }
             if(currentVelocity < (maxSpeed*-1)){
                 currentVelocity=maxSpeed*-1;
             }
@@ -58,9 +66,9 @@ public class HeroController : MonoBehaviour
             smokeTrail.GetComponent<SmokeTrail>().PlayAnimation("stop");
         if(currentVelocity==0)
             animator.SetBool("quiet", true);
-        
+    
+            transform.Translate(currentVelocity,0,0);
 
-        transform.Translate(currentVelocity,0,0);
     }
 
     public void GoLeftButtonDown(){
